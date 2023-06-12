@@ -1,0 +1,8 @@
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
+RewriteCond %{REQUEST_URI} \.(bmp|png|gif|css|js)$ [NC]
+RewriteCond %{QUERY_STRING} !^(.+?&v50|)v=50[^&]*(?:&(.*)|)$ [NC]
+RewriteRule ^ %{REQUEST_URI}?v=50 [R=301,L]
